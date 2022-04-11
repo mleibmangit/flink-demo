@@ -20,7 +20,7 @@ public class FlinkStreamingJob {
                 .window(SlidingProcessingTimeWindows.of(Time.seconds(60), Time.seconds(1)))
                 .aggregate(new AverageTemperatureAggregator())
                 .filter(t -> t.f0.getStandardDeviation() > 3)
-                .print();
+                .print("ALERT, temperature anomaly detected");
 
         env.execute();
     }

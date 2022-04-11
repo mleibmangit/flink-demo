@@ -30,7 +30,7 @@ public class AverageTemperatureAggregator
 
     @Override
     public Tuple2<DeviceTemperatureStandardDeviation, Double> getResult(DeviceTemperatureStandardDeviation deviceTemperatureStandardDeviation) {
-        //log.info("window closed with result: {}", deviceTemperatureStandardDeviation);
+        log.info("window closed with result: {}", deviceTemperatureStandardDeviation);
         return new Tuple2<>(deviceTemperatureStandardDeviation, deviceTemperatureStandardDeviation.getStandardDeviation());
     }
 

@@ -14,10 +14,10 @@ import java.util.concurrent.TimeUnit;
 public class TestSource extends RichSourceFunction<DeviceTemperatureMeasurement> {
 
     private static final Logger log = LoggerFactory.getLogger(TestSource.class);
-    private static final transient ScheduledExecutorService executor = Executors.newScheduledThreadPool(20);
+    private static final transient ScheduledExecutorService executor = Executors.newScheduledThreadPool(200);
 
     private volatile boolean running = true;
-    private final double[] temperatures = new double[]{1.0, 2.0, 3.0, 6.0};
+    private final double[] temperatures = new double[]{1.0, 2.0, 3.0, 6.0, 9.0};
     private final Random random = new Random();
 
     @Override
