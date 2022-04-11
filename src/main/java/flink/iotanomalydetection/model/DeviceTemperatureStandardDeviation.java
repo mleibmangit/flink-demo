@@ -12,7 +12,7 @@ public class DeviceTemperatureStandardDeviation {
     private String deviceId;
     private int count;
     private double average;
-    //private double standardDeviation;
+    private double standardDeviation;
     @ToString.Exclude
     private DescriptiveStatistics descriptiveStatistics = new DescriptiveStatistics();
 
@@ -31,11 +31,12 @@ public class DeviceTemperatureStandardDeviation {
         average = newAverage;
         standardDeviation = standardDeviation + addedStandardDeviation;*/
 
-       descriptiveStatistics.addValue(deviceTemperatureMeasurement.getTemperature());
+        descriptiveStatistics.addValue(deviceTemperatureMeasurement.getTemperature());
     }
 
-    public double getStandardDeviation(){
-        return descriptiveStatistics.getStandardDeviation();
+    public double getStandardDeviation() {
+        standardDeviation = descriptiveStatistics.getStandardDeviation();
+        return standardDeviation;
     }
 
     /*
