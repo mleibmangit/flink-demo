@@ -18,7 +18,7 @@ public class FlinkStreamingJob {
 
         deviceTemperatureMeasurements.keyBy(DeviceTemperatureMeasurement::getDeviceId)
                 .window(SlidingProcessingTimeWindows.of(Time.seconds(60), Time.seconds(1)))
-                .aggregate(new AverageTemperatureAggregator())
+                .aggregate(new DeviceTemperatureMeasurementAggregator())
                 .filter(t -> t.f0.getStandardDeviation() > 3)
                 .print("ALERT, temperature anomaly detected");
 

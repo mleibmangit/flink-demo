@@ -8,11 +8,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-public class AverageTemperatureAggregator
+public class DeviceTemperatureMeasurementAggregator
         implements AggregateFunction<DeviceTemperatureMeasurement, DeviceTemperatureStandardDeviation,
         Tuple2<DeviceTemperatureStandardDeviation, Double>> {
 
-    private static final Logger log = LoggerFactory.getLogger(AverageTemperatureAggregator.class);
+    private static final Logger log = LoggerFactory.getLogger(DeviceTemperatureMeasurementAggregator.class);
 
     @Override
     public DeviceTemperatureStandardDeviation createAccumulator() {

@@ -5,9 +5,6 @@ import lombok.Setter;
 import lombok.ToString;
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @ToString
 @Setter
 @Getter
@@ -16,7 +13,6 @@ public class DeviceTemperatureStandardDeviation {
     private int count;
     private double average;
     //private double standardDeviation;
-    //private List<Double> temperatures = new ArrayList<>();
     @ToString.Exclude
     private DescriptiveStatistics descriptiveStatistics = new DescriptiveStatistics();
 
