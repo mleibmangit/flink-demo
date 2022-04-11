@@ -22,7 +22,7 @@ public class AverageTemperatureAggregator
     @Override
     public DeviceTemperatureStandardDeviation add(DeviceTemperatureMeasurement deviceTemperatureMeasurement,
                                                   DeviceTemperatureStandardDeviation deviceTemperatureStandardDeviation) {
-        log.info("add new DeviceTemperatureMeasurement to window: {}", deviceTemperatureMeasurement);
+        //log.info("add new DeviceTemperatureMeasurement to window: {}", deviceTemperatureMeasurement);
         deviceTemperatureStandardDeviation.setDeviceId(deviceTemperatureMeasurement.getDeviceId());
         deviceTemperatureStandardDeviation.update(deviceTemperatureMeasurement);
         return deviceTemperatureStandardDeviation;
@@ -30,16 +30,13 @@ public class AverageTemperatureAggregator
 
     @Override
     public Tuple2<DeviceTemperatureStandardDeviation, Double> getResult(DeviceTemperatureStandardDeviation deviceTemperatureStandardDeviation) {
-        log.info("window closed with result: {}", deviceTemperatureStandardDeviation);
+        //log.info("window closed with result: {}", deviceTemperatureStandardDeviation);
         return new Tuple2<>(deviceTemperatureStandardDeviation, deviceTemperatureStandardDeviation.getStandardDeviation());
     }
 
     @Override
     public DeviceTemperatureStandardDeviation merge(DeviceTemperatureStandardDeviation deviceTemperatureAverage, DeviceTemperatureStandardDeviation acc1) {
-
         log.info("merge");
-        /*deviceTemperatureAverage.setSum(deviceTemperatureAverage.getSum() + acc1.getSum());
-        deviceTemperatureAverage.setCount(deviceTemperatureAverage.getCount() + acc1.getCount());*/
         return deviceTemperatureAverage;
     }
 }
