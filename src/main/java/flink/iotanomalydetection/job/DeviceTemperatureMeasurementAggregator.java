@@ -16,6 +16,7 @@ public class DeviceTemperatureMeasurementAggregator
 
     @Override
     public DeviceTemperatureStandardDeviation createAccumulator() {
+        //log.info("new window created");
         return new DeviceTemperatureStandardDeviation();
     }
 
@@ -30,7 +31,7 @@ public class DeviceTemperatureMeasurementAggregator
 
     @Override
     public Tuple2<DeviceTemperatureStandardDeviation, Double> getResult(DeviceTemperatureStandardDeviation deviceTemperatureStandardDeviation) {
-        log.info("window closed with result: {}", deviceTemperatureStandardDeviation);
+        //log.info("window closed with result: {}", deviceTemperatureStandardDeviation);
         return new Tuple2<>(deviceTemperatureStandardDeviation, deviceTemperatureStandardDeviation.getStandardDeviation());
     }
 

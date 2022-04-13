@@ -16,18 +16,18 @@ public class FlinkStreamingJob {
         DataStreamSource<DeviceTemperatureMeasurement> deviceTemperatureMeasurements
                 = env.addSource(new TestSource());
 
-       /* deviceTemperatureMeasurements
+        deviceTemperatureMeasurements
                 .keyBy(DeviceTemperatureMeasurement::getDeviceId)
                 .window(SlidingProcessingTimeWindows.of(Time.seconds(60), Time.seconds(1)))
                 .aggregate(new DeviceTemperatureMeasurementAggregator())
                 .filter(t -> t.f0.getStandardDeviation() > 3)
-                .print("ALERT, temperature anomaly detected");*/
+                .print("ALERT, temperature anomaly detected");
 
-        deviceTemperatureMeasurements
+        /*deviceTemperatureMeasurements
                 .keyBy(DeviceTemperatureMeasurement::getDeviceId)
                 .process(new DeviceTemperatureMeasurementAggregatorV2())
                 .filter(standardDeviation -> standardDeviation.getStandardDeviation() > 3)
-                .print("ALERT, temperature anomaly detected");
+                .print("ALERT, temperature anomaly detected");*/
 
         env.execute();
     }
